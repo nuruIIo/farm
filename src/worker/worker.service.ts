@@ -22,6 +22,9 @@ export class WorkerService {
     }
 
     const worker = await this.workerModel.create(createWorkerDto);
+    spec.workers.push(worker)
+    await spec.save()
+    
     return worker;
   }
 
